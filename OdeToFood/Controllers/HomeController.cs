@@ -22,7 +22,15 @@ namespace OdeToFood.Controllers
 		{
 			return View();
 		}
-
+		public IActionResult About()
+		{
+			var model = new AboutModel()
+			{
+				Name = "Kristjan Kivikangur",
+				Location = "Tallinn"
+			};
+			return View(model);
+		}
 		public IActionResult Privacy()
 		{
 			return View();
