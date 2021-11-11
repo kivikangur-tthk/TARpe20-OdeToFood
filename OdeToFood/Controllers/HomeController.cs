@@ -18,19 +18,23 @@ namespace OdeToFood.Controllers
 			_logger = logger;
 		}
 
-		public HomeController()
-		{
-		}
+
 
 		public IActionResult Index()
 		{
+			var controller = RouteData.Values["controller"];
+			var action = RouteData.Values["action"];
+			var id = RouteData.Values["id"];
+
+			ViewBag.Message = $"{controller}::{action} {id}";
+
 			return View();
 		}
 		public IActionResult About()
 		{
 			var model = new AboutModel()
 			{
-				Name = "Kristjan Kivikangur",
+				Name = "Ramon Ernits",
 				Location = "Tallinn"
 			};
 			return View(model);
