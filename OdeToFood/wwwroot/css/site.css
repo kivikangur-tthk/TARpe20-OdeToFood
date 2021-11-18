@@ -83,3 +83,6 @@ body {
 .review p {
  font-size: .8em;
 }
+.right {
+ margin: 0 auto;
+}
