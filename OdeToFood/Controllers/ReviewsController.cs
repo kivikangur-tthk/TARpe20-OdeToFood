@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OdeToFood.Data;
 using OdeToFood.Models;
 using System;
@@ -40,6 +41,23 @@ namespace OdeToFood.Controllers
 			if (ModelState.IsValid)
 			{
 				_context.Reviews.Add(review);
+				_context.SaveChanges();
+				return RedirectToAction(nameof(Index), new { id = review.RestaurantId });
+			}
+			return View(review);
+		}
+		[HttpGet]
+		public ActionResult Edit(int id)
+		{
+			var model = _context.Reviews.Find(id);
+			return View(model);
+		}
+		[HttpPost]
+		public ActionResult Edit(RestaurantReview review)
+		{
+			if (ModelState.IsValid)
+			{
+				_context.Entry(review).State = EntityState.Modified;
 				_context.SaveChanges();
 				return RedirectToAction(nameof(Index), new { id = review.RestaurantId });
 			}
