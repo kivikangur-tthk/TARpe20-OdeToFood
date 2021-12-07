@@ -1,0 +1,14 @@
+﻿@Model
+
+
+<div id="restaurantList">
+    @foreach (var item in Model)
+    {
+        <div>
+            <h4>@item.Name</h4>
+            <div>@item.City, @item.Country</div>
+            <div>Number of Reviews: @item.CountOfReviews</div>
+        </div>
+    }
+</div>
+
