@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OdeToFood.Data;
 using OdeToFood.Models;
-using OdeToFood.Models.ViewModels;
+using OdeToFood.Models.viewModels;
 
 namespace OdeToFood.Controllers
 {
@@ -59,7 +59,7 @@ namespace OdeToFood.Controllers
 
 
         [HttpPost]
-        public ActionResult Edit(int id, ReviewViewModel review)
+        public ActionResult Edit(int id,ReviewViewModel review)
         {
             if (id != review.Id)
             {

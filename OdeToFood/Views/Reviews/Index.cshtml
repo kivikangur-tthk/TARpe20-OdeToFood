@@ -1,5 +1,4 @@
-﻿
-@model OdeToFood.Models.Restaurant
+﻿@model OdeToFood.Models.Restaurant
 
 @{
     ViewData["Title"] = "Index";
@@ -7,7 +6,8 @@
 
 <h1>Reviews for resturant @Model.Name</h1>
 
-<partial name="_Reviews" model="@Model.Reviews" />
+<partial name="_Reviews" model="@Model.Reviews"/>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" asp-route-restaurantId="@Model.Id">Create New</a>
 </p>
+

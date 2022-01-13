@@ -24,7 +24,7 @@ namespace OdeToFood.Controllers
             _context = context;
         }
 
-        public ActionResult Autocomplete(string term)
+        public ActionResult Autocomplete (string term)
         {
             var model = _context.Restaurants
                 .Where(r => r.Name.StartsWith(term))
@@ -38,7 +38,7 @@ namespace OdeToFood.Controllers
 
 
 
-        public IActionResult Index(string searchTerm = null, int page = 1)
+        public IActionResult Index(string searchTerm = null,int page = 1)
         {
             //var model =
             //    from r in _context.Restaurants
@@ -56,7 +56,7 @@ namespace OdeToFood.Controllers
                 r => r.Reviews.Average(review => review.Rating)
                 )
                 .Where(r => searchTerm == null || r.Name.Contains(searchTerm))
-
+                
                 .Select(r => new RestaurantListViewModel
                 {
                     Id = r.Id,
@@ -64,7 +64,7 @@ namespace OdeToFood.Controllers
                     City = r.City,
                     Country = r.Country,
                     CountOfReviews = r.Reviews.Count()
-                }).ToPagedList(page, 10);
+                }).ToPagedList(page,10);
 
             if (Request.IsAjaxRequest())
             {
@@ -82,8 +82,8 @@ namespace OdeToFood.Controllers
         {
             var model = new AboutModel()
             {
-                Name = "Ramon Ernits",
-                Location = "Tallinn"
+             Name = "Ramon Ernits",
+            Location = "Tallinn"
             };
 
             return View(model);

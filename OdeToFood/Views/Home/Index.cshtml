@@ -3,14 +3,14 @@
     ViewData["Title"] = "Home Page";
 }
 
-<form method="get" action="@Url.Action("Index")"
+<form method="get" action ="@Url.Action("Index")"
       data-otf-ajax="true" data-otf-target="#restaurantList">
 
 
-    <input type="search" name="searchTerm" data-otf-autocomplete="@Url.Action("Autocomplete")" />
-    <input type="submit" name="Search By Name" />
+        <input type="search" name="searchTerm" data-otf-autocomplete="@Url.Action("Autocomplete")" />
+        <input type="submit" name="Search By Name" />
 
-</form>
+    </form>
 
 
 
